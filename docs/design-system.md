@@ -57,14 +57,6 @@ src/
 - **색상**: `--color-background` → `bg-background`, `text-background` 클래스
 - **간격**: `--spacing-md` → `p-md`, `m-md`, `gap-md` 등 클래스
 
-그리고 이거 어떻게 사용하는지도 적어두고 싶은데.
-예를 들어 지금 theme에 --font-family-sans로 정의해둔 폰트, `font-sans`라는 Tailwind 유틸리티 클래스 이름으로 사용할 수 있는 거잖아.
-color도 --color-background: var(어쩌구) 해놓으면 className에서 `bg-background` 이렇게 쓸 수 있잖아.
-이거 각각 어떻게 되는지를 적어뒀으면 좋겠는데,
-
-1. css 파일의 해당 코드 근처에 주석으로 적어두기
-2. 이 `design-system.md` 파일에 문서화하기
-
 #### 3. `:root` 블록 - 라이트 모드 전용 토큰
 
 라이트 모드에서만 사용되는 토큰들을 정의합니다. 주로 색상 토큰이 여기에 포함됩니다.
@@ -86,6 +78,14 @@ color도 --color-background: var(어쩌구) 해놓으면 className에서 `bg-bac
 - `--color-text-primary`: 주요 텍스트 색상
 - `--color-text-secondary`: 보조 텍스트 색상
 - `--color-border-default`: 기본 테두리 색상
+
+**Tailwind 색상 참조 규칙:**
+색상 토큰은 이미 검증된 색상 체계를 활용하기 Tailwind CSS의 기본 색상 팔레트에서 선택하는 것을 권장합니다. 이렇게 토큰을 정의할 시 해당하는 Tailwind 색상명을 주석으로 명시해야 합니다.
+
+```css
+/* 예시 */
+--color-text-primary: #1c1917; /* stone-900 */
+```
 
 ### 간격 (Spacing)
 
