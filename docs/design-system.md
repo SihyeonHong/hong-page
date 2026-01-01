@@ -4,6 +4,7 @@
 
 - CSS에서 절대값을 직접 하드코딩하지 않습니다. 디자인 시스템의 토큰을 사용합니다.
 - 디자인 시스템을 먼저 결정하는 것이 아니라, 구현하면서 결정된 내용을 디자인 시스템에 반영합니다.
+- 클래스네임에는 Tailwind 유틸리티 클래스를 사용하는 것을 권장합니다. 필요하다면 커스텀 클래스를 사용할 수 있으나, 그보다는 공통 컴포넌트로 만드는 편이 좋습니다.
 
 ## CSS 파일 구조
 
@@ -89,81 +90,40 @@ src/
 
 ### 간격 (Spacing)
 
-형식: `--spacing-{크기}`
+Tailwind CSS의 기본 spacing scale을 사용합니다. 커스텀 spacing 토큰은 `@theme` 블록에 정의하지 않으며, Tailwind 기본 클래스를 직접 사용합니다.
 
-예시:
+#### Tailwind 기본 spacing 매핑
 
-- `--spacing-xs`: 4px
-- `--spacing-sm`: 8px
-- `--spacing-md`: 16px
-- `--spacing-lg`: 24px
-- `--spacing-xl`: 32px
+- `4` = 16px (md)
+- `6` = 24px (lg)
+- `8` = 32px (xl)
+
+#### 사용 규칙
+
+- 레이아웃 요소 수평 패딩 (헤더, 푸터 등): `px-8` (xl)
+- 레이아웃 요소 수직 패딩 (헤더, 푸터 등): `py-4` (md)
+- 네비게이션 요소 간 간격: `gap-6` (lg)
 
 ### 타이포그래피 (Typography)
 
-형식: `--font-{속성}-{크기}`
+Tailwind CSS의 기본 타이포그래피 scale을 사용합니다. 커스텀 타이포그래피 토큰은 `@theme` 블록에 정의하지 않으며, Tailwind 기본 클래스를 직접 사용합니다.
 
-예시:
+#### 사용 규칙
 
-- `--font-size-xs`: 12px
-- `--font-size-sm`: 14px
-- `--font-size-base`: 16px
-- `--font-size-lg`: 18px
-- `--font-weight-normal`: 400
-- `--font-weight-bold`: 700
-- `--font-family-sans`: "Pretendard Variable", sans-serif
+(아직 정의된 규칙 없음 - 컴포넌트 구현 시 추가)
 
 ### 둥근 모서리 (Border Radius)
 
-형식: `--radius-{크기}`
+Tailwind CSS의 기본 border radius scale을 사용합니다. 커스텀 radius 토큰은 `@theme` 블록에 정의하지 않으며, Tailwind 기본 클래스를 직접 사용합니다.
 
-예시:
+#### 사용 규칙
 
-- `--radius-sm`: 4px
-- `--radius-md`: 8px
-- `--radius-lg`: 12px
-- `--radius-full`: 9999px
+(아직 정의된 규칙 없음 - 컴포넌트 구현 시 추가)
 
 ### 그림자 (Shadow)
 
-형식: `--shadow-{크기}`
+Tailwind CSS의 기본 shadow scale을 사용합니다. 커스텀 shadow 토큰은 `@theme` 블록에 정의하지 않으며, Tailwind 기본 클래스를 직접 사용합니다.
 
-예시:
+#### 사용 규칙
 
-- `--shadow-sm`: 작은 그림자
-- `--shadow-md`: 중간 그림자
-- `--shadow-lg`: 큰 그림자
-
----
-
-```css
-:root {
-  /* 간격 - 라이트/다크 공통 */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-
-  /* 폰트 크기 - 라이트/다크 공통 */
-  --font-size-sm: 14px;
-  --font-size-base: 16px;
-  --font-size-lg: 18px;
-}
-```
-
-```css
-:root {
-  /* 라이트 모드 색상 */
-  --color-background: #ffffff;
-  --color-text: #1f2937;
-  --color-primary: #3b82f6;
-}
-```
-
-```css
-[data-theme="dark"] {
-  /* 다크 모드 색상 */
-  --color-background: #1a1a1a;
-  --color-text: #f9fafb;
-  --color-primary: #60a5fa;
-}
-```
+- 레이아웃 요소 그림자 (헤더, 카드 등): `shadow-sm`
